@@ -10,7 +10,7 @@ NSString* theCallbackId;
   AVAudioSession *audioSession = [AVAudioSession sharedInstance];
   NSError *setCategoryError = nil;
   BOOL ok = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
-
+  [audioSession setActive:YES error:NULL];
   NSLog(@"BackgroundAudio plugin ok? %@", ok ? @"YES" : @"NO");
   if (!ok) {
     NSLog(@"BackgroundAudio plugin error: %@", setCategoryError.description);
